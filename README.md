@@ -4,6 +4,14 @@
 
 This repository provides a production-ready setup for deploying applications to Azure Kubernetes Service (AKS) using GitOps principles with ArgoCD and Terraform.
 
+## 📚 Credits
+
+This project is based on the excellent **Terraform Full Course with Azure** by Piyush Sachdeva. A copy of this project was taken from the original course repository to learn and practice GitOps and Terraform concepts.
+
+**Original Course Repository**: [https://github.com/piyushsachdeva/Terraform-Full-Course-Azure](https://github.com/piyushsachdeva/Terraform-Full-Course-Azure)
+
+Special thanks to Piyush Sachdeva for creating this comprehensive learning resource!
+
 ## 📋 Table of Contents
 
 - [Architecture Overview](#-architecture-overview)
