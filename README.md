@@ -27,9 +27,9 @@ Special thanks to Piyush Sachdeva for creating this comprehensive learning resou
 
 ---
 
-## Check out the video below for Day28 👇
+## Project Walkthrough Video
 
-[![Day 28/28 - Terraform end-to-end Project with AKS and GitOps](https://img.youtube.com/vi/FjsBZywrRX8/sddefault.jpg)](https://youtu.be/FjsBZywrRX8)
+[![Terraform end-to-end Project with AKS and GitOps](https://img.youtube.com/vi/FjsBZywrRX8/sddefault.jpg)](https://youtu.be/FjsBZywrRX8)
 
 
 ## 🏗️ Architecture Overview
