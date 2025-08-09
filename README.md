@@ -27,11 +27,6 @@ Special thanks to Piyush Sachdeva for creating this comprehensive learning resou
 
 ---
 
-## Project Walkthrough Video
-
-[![Terraform end-to-end Project with AKS and GitOps](https://img.youtube.com/vi/FjsBZywrRX8/sddefault.jpg)](https://youtu.be/FjsBZywrRX8)
-
-
 ## 🏗️ Architecture Overview
 
 ### Components
