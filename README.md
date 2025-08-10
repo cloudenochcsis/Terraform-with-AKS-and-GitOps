@@ -1,10 +1,10 @@
-# 🚀 AKS GitOps Deployment Guide
+# AKS GitOps Deployment Guide
 
 **Complete step-by-step guide to deploy AKS with GitOps using Terraform and ArgoCD**
 
 This repository provides a production-ready setup for deploying applications to Azure Kubernetes Service (AKS) using GitOps principles with ArgoCD and Terraform.
 
-## 📚 Credits
+## Credits
 
 This project is based on the excellent **Terraform Full Course with Azure** by Piyush Sachdeva. A copy of this project was taken from the original course repository to learn and practice GitOps and Terraform concepts.
 
@@ -12,11 +12,11 @@ This project is based on the excellent **Terraform Full Course with Azure** by P
 
 Special thanks to Piyush Sachdeva for creating this comprehensive learning resource!
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Architecture Overview](#-architecture-overview)
 - [Prerequisites](#-prerequisites)
-- [🔄 Complete Recreation Guide](#-complete-recreation-guide)
+- [Complete Recreation Guide](#-complete-recreation-guide)
 - [Quick Start](#-quick-start)
 - [Multi-Environment Setup](#-multi-environment-setup)
 - [Accessing ArgoCD WebUI](#-accessing-argocd-webui)
@@ -26,6 +26,10 @@ Special thanks to Piyush Sachdeva for creating this comprehensive learning resou
 - [Clean Up](#-clean-up)
 
 ---
+
+## Project Walkthrough Video
+
+[![Terraform end-to-end Project with AKS and GitOps](https://img.youtube.com/vi/FjsBZywrRX8/sddefault.jpg)](https://youtu.be/FjsBZywrRX8)
 
 ## 🏗️ Architecture Overview
 
@@ -84,7 +88,7 @@ Special thanks to Piyush Sachdeva for creating this comprehensive learning resou
 
 ---
 
-## ✅ Prerequisites
+## Prerequisites
 
 ### 1. Essential Tools (Required)
 
@@ -178,15 +182,15 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_azure -N ""
 
 ---
 
-## 🔄 Complete Recreation Guide
+## Complete Recreation Guide
 
-### **⚠️ CRITICAL: Follow this exact sequence for successful recreation**
+### CRITICAL: Follow this exact sequence for successful recreation
 
-**Before deploying ANY infrastructure, you MUST first set up your GitOps repository. ArgoCD will fail to deploy applications without access to the manifest files.**
+Before deploying ANY infrastructure, you MUST first set up your GitOps repository. ArgoCD will fail to deploy applications without access to the manifest files.
 
 ---
 
-### 🎯 Step 1: Create Your GitOps Repository (FIRST!)
+### Step 1: Create Your GitOps Repository (FIRST!)
 
 #### 1.1 Create New GitHub Repository
 
@@ -194,7 +198,7 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa_azure -N ""
    - **Repository name**: `gitops-configs` (or your preferred name)
    - **Description**: "Kubernetes manifests for 3-tier application GitOps deployment"
    - **Visibility**: Public (recommended) or Private with proper access configured
-   - ✅ **Initialize with README**
+   - **Initialize with README**
 
 2. **Clone your new repository**:
    ```bash
@@ -273,7 +277,7 @@ curl -s https://api.github.com/repos/YOUR_USERNAME/gitops-configs
 
 ---
 
-### 🔧 Step 2: Update Terraform Configuration Files
+### Step 2: Update Terraform Configuration Files
 
 #### 2.1 Update Repository URLs in ALL Environment Files
 
@@ -317,7 +321,7 @@ vim prod/terraform.tfvars
 
 ---
 
-### ✅ Step 3: Validation Before Infrastructure Deployment
+### Step 3: Validation Before Infrastructure Deployment
 
 #### 3.1 Validate GitOps Repository Access
 
@@ -391,8 +395,8 @@ terraform apply -auto-approve
 ```
 
 > **What Terraform Deploys Automatically:**
-> - ✅ AKS cluster with auto-scaling
-> - ✅ ArgoCD installation via Helm
+> - AKS cluster with auto-scaling
+> - ArgoCD installation via Helm
 > - ✅ Azure AD integration and RBAC
 > - ✅ Network policies and security groups
 > - ✅ Sample guestbook application via GitOps
