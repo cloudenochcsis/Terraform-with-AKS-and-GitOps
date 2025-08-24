@@ -7,7 +7,7 @@ set -e
 # Parameters passed from Terraform
 ENVIRONMENT=$1
 
-echo "🧹 Cleaning up External Secrets resources..."
+echo "Cleaning up External Secrets resources..."
 
 # Delete ExternalSecret
 kubectl delete externalsecret postgres-credentials -n "3tirewebapp-${ENVIRONMENT}" --ignore-not-found=true || true

@@ -841,7 +841,7 @@ cp backend.tf.example backend.tf
 
 ---
 
-## 🌐 Accessing ArgoCD WebUI
+## Accessing ArgoCD WebUI
 
 ### Get ArgoCD Access Information
 
@@ -908,7 +908,7 @@ kubectl port-forward svc/frontend -n 3tirewebapp-dev 3000:3000
 kubectl port-forward svc/frontend -n 3tirewebapp-dev 3000:3000
 ```
 
-### 🔗 All Access Methods for Your 3-Tier Application
+### All Access Methods for Your 3-Tier Application
 
 | Method | Use Case | Prerequisites | Command/Steps | Access URL |
 |--------|----------|---------------|---------------|------------|
@@ -917,7 +917,7 @@ kubectl port-forward svc/frontend -n 3tirewebapp-dev 3000:3000
 | **LoadBalancer** | External Cloud Access | Azure LoadBalancer support | Patch service to LoadBalancer type | `http://<EXTERNAL-IP>:3000` |
 | **NodePort** | Direct Node Access | Node IP access | Patch service to NodePort type | `http://<NODE-IP>:<NodePort>` |
 
-#### 🏆 Recommended Access Methods by Environment
+#### Recommended Access Methods by Environment
 
 - **Development**: Port Forward (fastest setup)
 - **Testing/Staging**: Built-in Ingress (production-like)
@@ -1274,7 +1274,7 @@ kubectl patch application <app-name> -n argocd --type merge --patch '{"operation
 
 ---
 
-## 🧹 Clean Up
+## Clean Up
 
 ### Remove Applications
 
@@ -1331,7 +1331,7 @@ rm -f ~/.kube/config.backup
 
 ---
 
-## 📞 Support
+## Support
 
 For issues or questions:
 

@@ -18,7 +18,7 @@ POSTGRES_CONNECTION_STRING_SECRET=$9
 echo "Getting AKS cluster credentials..."
 az aks get-credentials --resource-group "${RESOURCE_GROUP_NAME}" --name "${CLUSTER_NAME}" --admin --overwrite-existing
 
-echo "📦 Installing External Secrets Operator..."
+echo "Installing External Secrets Operator..."
 helm repo add external-secrets https://charts.external-secrets.io
 helm repo update
 
@@ -35,7 +35,7 @@ kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=external-secret
 echo "Creating application namespace..."
 kubectl create namespace "3tirewebapp-${ENVIRONMENT}" --dry-run=client -o yaml | kubectl apply -f -
 
-echo "🔑 Creating SecretStore for Azure Key Vault..."
+echo "Creating SecretStore for Azure Key Vault..."
 cat <<EOF | kubectl apply -f -
 apiVersion: external-secrets.io/v1
 kind: SecretStore
