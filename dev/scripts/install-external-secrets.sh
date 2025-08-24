@@ -15,7 +15,7 @@ POSTGRES_PASSWORD_SECRET=$7
 POSTGRES_DATABASE_SECRET=$8
 POSTGRES_CONNECTION_STRING_SECRET=$9
 
-echo "🔐 Getting AKS cluster credentials..."
+echo "Getting AKS cluster credentials..."
 az aks get-credentials --resource-group "${RESOURCE_GROUP_NAME}" --name "${CLUSTER_NAME}" --admin --overwrite-existing
 
 echo "📦 Installing External Secrets Operator..."
@@ -32,7 +32,7 @@ helm upgrade --install external-secrets external-secrets/external-secrets \
 echo "⏳ Waiting for External Secrets Operator to be ready..."
 kubectl wait --for=condition=ready pod -l app.kubernetes.io/name=external-secrets -n external-secrets-system --timeout=300s
 
-echo "🏗️ Creating application namespace..."
+echo "Creating application namespace..."
 kubectl create namespace "3tirewebapp-${ENVIRONMENT}" --dry-run=client -o yaml | kubectl apply -f -
 
 echo "🔑 Creating SecretStore for Azure Key Vault..."
@@ -50,7 +50,7 @@ spec:
       identityId: ${KUBELET_IDENTITY_ID}
 EOF
 
-echo "🎯 Creating ExternalSecret for PostgreSQL credentials..."
+echo "Creating ExternalSecret for PostgreSQL credentials..."
 cat <<EOF | kubectl apply -f -
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
@@ -80,13 +80,13 @@ spec:
         key: ${POSTGRES_CONNECTION_STRING_SECRET}
 EOF
 
-echo "✅ Verifying ExternalSecret status..."
+echo "Verifying ExternalSecret status..."
 kubectl wait --for=condition=Ready externalsecret postgres-credentials -n "3tirewebapp-${ENVIRONMENT}" --timeout=300s || true
 
-echo "🔍 Checking secret creation..."
+echo "Checking secret creation..."
 for i in {1..30}; do
   if kubectl get secret postgres-credentials-from-kv -n "3tirewebapp-${ENVIRONMENT}" >/dev/null 2>&1; then
-    echo "✅ Secret postgres-credentials-from-kv created successfully!"
+    echo "Secret postgres-credentials-from-kv created successfully!"
     break
   else
     echo "⏳ Waiting for secret creation... (attempt $i/30)"
@@ -94,4 +94,4 @@ for i in {1..30}; do
   fi
 done
 
-echo "🎉 External Secrets Operator setup complete!"
+echo "External Secrets Operator setup complete!"

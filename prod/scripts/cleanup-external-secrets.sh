@@ -18,4 +18,4 @@ kubectl delete secretstore azure-keyvault-store -n "3tirewebapp-${ENVIRONMENT}" 
 # Uninstall External Secrets Operator
 helm uninstall external-secrets -n external-secrets-system || true
 
-echo "✅ External Secrets cleanup completed!"
+echo "External Secrets cleanup completed!"
